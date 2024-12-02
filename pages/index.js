@@ -85,6 +85,9 @@ function HomePage() {
     const scrollAmount = direction === 'left' ? -288 : 288;
     
     if (slider) {
+      // Pause the animation when manually scrolling
+      slider.style.animationPlayState = 'paused';
+      
       const maxScroll = slider.scrollWidth - slider.clientWidth;
       const newScrollPosition = slider.scrollLeft + scrollAmount;
       
@@ -100,6 +103,11 @@ function HomePage() {
           behavior: 'smooth'
         });
       }
+      
+      // Resume animation after scrolling
+      setTimeout(() => {
+        slider.style.animationPlayState = 'running';
+      }, 1000);
     }
   };
 
@@ -276,7 +284,7 @@ function HomePage() {
 <div className="relative overflow-hidden mb-8 py-4">
   <button
     onClick={() => handleSlideChange('left')}
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all"
+    className="slider-button absolute left-4"
     aria-label="Previous slide"
   >
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,25 +292,27 @@ function HomePage() {
     </svg>
   </button>
 
-  <div className="flex gap-4 image-slider-left">
-    {[1, 2].map((set) => (
-      <div key={set} className="flex gap-4 flex-nowrap">
-        {topSliderImages.map((img, index) => (
-          <div key={`${set}-${index}`} className="flex-none w-72 h-96 relative">
-            <img
-              src={img}
-              alt={`Portfolio ${index + 1}`}
-              className="slider-image w-full h-full object-cover rounded-lg"
-            />
-          </div>
-        ))}
-      </div>
-    ))}
+  <div className="image-slider-left">
+    <div className="flex">
+      {[1, 2].map((set) => (
+        <div key={set} className="flex gap-4 flex-nowrap">
+          {topSliderImages.map((img, index) => (
+            <div key={`${set}-${index}`} className="flex-none w-72 h-96">
+              <img
+                src={img}
+                alt={`Portfolio ${index + 1}`}
+                className="slider-image w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   </div>
 
   <button
     onClick={() => handleSlideChange('right')}
-    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all"
+    className="slider-button absolute right-4"
     aria-label="Next slide"
   >
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

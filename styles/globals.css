@@ -64,7 +64,7 @@ body {
 
 @keyframes slideLeft {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-100%); } /* Ensure it scrolls the full width */
 }
 
 @keyframes slideRight {
@@ -74,7 +74,7 @@ body {
 
 /* Slider Styles */
 .image-slider-left {
-  width: auto;
+  width: 100%;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -83,10 +83,22 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+.image-slider-left > div {
+  display: flex;
+  width: fit-content; /* Allow container to fit all images */
+}
+
 .image-slider-left::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
+.image-slider-left:hover {
+  animation-play-state: paused; /* Pause on hover */
+}
+
+.image-slider-left > div:hover {
+  animation-play-state: paused;
+}
 .slider-image {
   width: 100%;
   height: 100%;
@@ -118,12 +130,12 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -132,7 +144,7 @@ body {
   }
 
   .slider-button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
