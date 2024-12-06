@@ -352,9 +352,9 @@ function HomePage() {
               <div className="flex items-center text-white text-3xl md:text-4xl font-light py-4">
                 {[1, 2, 3].map((i) => (
                   <span key={i} className="flex items-center">
-                    {"Generative AI * Custom Coding * Research * DevOps".split('*').map((text, index) => (
+                    {[faCode, faCogs, faFlask, faServer].map((icon, index) => (
                       <span key={index} className="flex items-center">
-                        <span>{text}</span>
+                        <FontAwesomeIcon icon={icon} className="text-gray-400 mx-3" />
                         <span className="text-orange-200 mx-3 transform rotate-45">✱</span>
                       </span>
                     ))}
