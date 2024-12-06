@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useInView } from '../hooks/useInView';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useInView } from '../hooks/useInView';
+import { SiPython, SiOpenai } from 'react-icons/si';
+import { TbBrain, TbServer } from 'react-icons/tb';
 
 function HomePage() {
   const router = useRouter();
@@ -345,24 +351,30 @@ function HomePage() {
       </div>
 
 {/* Scrolling Banners Section */}
-      <div className="relative overflow-hidden bg-gray-900">
-        <div className="w-full relative left-[50%] -translate-x-1/2 overflow-hidden bg-gray-900">
-          <div className="banner-container">
-            <div className="flex whitespace-nowrap animate-scroll-left">
-              <div className="flex items-center text-white text-3xl md:text-4xl font-light py-4">
-                {[1, 2, 3].map((i) => (
-                  <span key={i} className="flex items-center">
-                    {[faCode, faCogs, faFlask, faServer].map((icon, index) => (
-                      <span key={index} className="flex items-center">
-                        <FontAwesomeIcon icon={icon} className="text-gray-400 mx-3" />
-                        <span className="text-orange-200 mx-3 transform rotate-45">✱</span>
-                      </span>
-                    ))}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+<div className="relative overflow-hidden bg-gray-900">
+  <div className="w-full relative left-[50%] -translate-x-1/2 overflow-hidden bg-gray-900">
+    <div className="banner-container">
+      <div className="flex whitespace-nowrap animate-scroll-left">
+        <div className="flex items-center text-white text-3xl md:text-4xl font-light py-4">
+          {[1, 2, 3].map((i) => (
+            <span key={i} className="flex items-center">
+              {[
+                { icon: SiPython, text: "Custom Coding" },
+                { icon: TbBrain, text: "Research" },
+                { icon: SiOpenai, text: "Generative AI" },
+                { icon: TbServer, text: "DevOps" }
+              ].map(({ icon: Icon, text }, index) => (
+                <span key={index} className="flex items-center">
+                  <Icon className="text-gray-400 w-8 h-8 mx-3" />
+                  <span className="text-white">{text}</span>
+                  <span className="text-orange-200 mx-3 transform rotate-45">✱</span>
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
 
 {/* Bottom banner - scrolling right */}
           <div className="relative mt-2">
