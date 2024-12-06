@@ -253,7 +253,7 @@ function HomePage() {
                 WELCOME
               </div>
               <div className="absolute bottom-2 left-0 right-0 text-gray-400 text-sm">
-                CREATE  |  DESIGN  |  BUILD  |  DEPLOY
+                John Li - PORTFOLIO
               </div>
             </div>
 
@@ -402,17 +402,17 @@ function HomePage() {
       <div className="space-y-1">
         <h1 className={`text-7xl font-extralight tracking-wide text-white scroll-animate-left ${portfolioInView ? 'fade-in' : ''}`}
             style={{ fontFamily: "'Cormorant Garamond', serif", transitionDelay: '200ms' }}>
-          Creative
+          Create
         </h1>
         <h1 className={`text-7xl font-extralight tracking-wide text-white scroll-animate-right ${portfolioInView ? 'fade-in' : ''}`}
             style={{ fontFamily: "'Cormorant Garamond', serif", transitionDelay: '300ms' }}>
-          personal
+          design
         </h1>
         <div className={`flex justify-center items-baseline space-x-4 scroll-animate ${portfolioInView ? 'fade-in' : ''}`}
              style={{ transitionDelay: '400ms' }}>
           <h1 className="text-5xl font-extralight text-orange-200/90 tracking-wide"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            portfolio
+            develop
           </h1>
           <span className="text-5xl font-extralight text-orange-200/90 tracking-wide"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}>
@@ -420,12 +420,12 @@ function HomePage() {
           </span>
           <h1 className="text-5xl font-extralight text-orange-200/90 tracking-wide"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            resume
+            generate
           </h1>
         </div>
         <h1 className={`text-5xl font-extralight text-gray-500/80 tracking-wide scroll-animate ${portfolioInView ? 'fade-in' : ''}`}
             style={{ fontFamily: "'Cormorant Garamond', serif", transitionDelay: '500ms' }}>
-          templates
+          Deploy
         </h1>
       </div>
     </div>
